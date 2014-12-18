@@ -1,0 +1,107 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+<RelativeLayout 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp" >
+
+    <TextView
+        android:id="@+id/txvDownloadBitmap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="Please input image url" />
+
+    <EditText
+        android:id="@+id/edtBitmapURL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/txvDownloadBitmap"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/btnDownloadBitmap"
+          style="@style/BlackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/edtBitmapURL"
+        android:text="Download Image" />
+    
+    <TextView
+        android:id="@+id/txvGeneralInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/btnDownloadBitmap"
+        android:layout_below="@+id/edtBitmapURL"
+        android:layout_toLeftOf="@+id/btnDownloadBitmap"
+        android:text="*Downloaded image will be resized for optimization" />
+
+    <TextView
+        android:id="@+id/txvDownloadInfo"
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/btnDownloadBitmap"
+        android:text="" />
+    
+    <ImageView
+        android:id="@+id/imgDownloadedBitmap"
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txvDownloadInfo"
+        android:layout_below="@+id/txvDownloadInfo" />
+
+    <TextView
+        android:id="@+id/txvJsonGetUrl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imgDownloadedBitmap"
+        android:layout_centerVertical="true"
+        android:text="Please input JSON url" />
+    
+    <EditText
+        android:id="@+id/edtJSONURL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/txvJsonGetUrl"
+        android:ems="10" >
+    </EditText>
+    
+    <Button
+        android:id="@+id/btnGetJson"
+          style="@style/BlackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/edtJSONURL"
+        android:text="Get Json" />
+
+    <TextView
+        android:id="@+id/txvJsonContentLbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnGetJson"
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp"
+        android:text="Contents Of Json" />
+    
+     <TextView
+        android:id="@+id/txvJsonContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txvJsonContentLbl" />
+</RelativeLayout>
+</ScrollView>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Dev Utils</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string-array name="imageScaling">
+        <item>getScaledBitmap</item>
+        <item>getExactScaledBitmap</item>
+        <item>scale MATCH_TO_SMALLER_DIMENSION</item>
+        <item>scale MATCH_TO_LARGER_DIMENSION</item>
+        <item>scale LARGER_THAN_VIEW_OR_FULL_SIZE</item>
+        <item>scale ROUND_TO_CLOSEST_MATCH</item>
+        <item>scale MATCH_TO_SMALLER_DIMENSION</item>
+        <item>scale SMALLER_THAN_VIEW</item>
+        <item>getScaledBitmapFromBitmap</item>
+        <item>getExactScaledBitmapFromBitmap</item>
+        <item>getBasedOnScalingOptionsFromBitmap</item>
+
+    </string-array>
+    
+    <string-array name="inputOptions">
+         <item>long</item>
+         <item>double</item>
+    </string-array>
+    
+     <string-array name="assetOptions">
+         <item>writeAssetToExternalFile</item>
+         <item>getStringFromAsset</item>
+         <item>getResourceName</item>
+         <item>printList</item>
+         <item>readUsingStream</item>
+    </string-array>
+</resources>

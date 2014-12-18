@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/txvInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please Input" />
+
+     <Button
+         android:id="@+id/btnInputClear"
+         style="@style/BlackButton"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_alignParentLeft="true"
+         android:layout_alignRight="@+id/vwStruts"
+         android:layout_below="@+id/edtInput"
+         android:text="Clear" />
+
+      <Spinner
+          android:id="@+id/spnEditTextOptions"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_alignBottom="@+id/btnInputClear"
+          android:layout_alignLeft="@+id/vwStruts"
+          android:layout_alignParentRight="true"
+          android:layout_below="@+id/edtInput"
+          android:layout_toRightOf="@+id/btnInputClear"
+          android:entries="@array/inputOptions" />
+     
+     <EditText
+         android:id="@+id/edtInput"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_alignParentLeft="true"
+         android:layout_below="@+id/txvInput"
+         android:ems="10" />
+    
+        <TextView
+            android:id="@+id/txvMin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/txvInfo"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/spnEditTextOptions"
+            android:text="Min" />
+        
+       <EditText
+           android:id="@+id/edtMin"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_below="@+id/spnEditTextOptions"
+           android:layout_toLeftOf="@+id/vwStruts"
+           android:layout_toRightOf="@+id/txvMin"
+           android:ems="10" />
+          
+            <TextView
+                android:id="@+id/txvMax"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/txvInfo"
+                android:layout_below="@+id/spnEditTextOptions"
+                android:layout_toRightOf="@+id/edtMin"
+                android:text="Max" />
+            
+		<EditText
+        android:id="@+id/edtMax"
+        android:layout_toRightOf="@+id/txvMax"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spnEditTextOptions"
+        android:ems="10" />
+              
+	<TextView
+        android:id="@+id/txvInfo"
+        android:paddingTop="10dp"
+        android:layout_below="@+id/edtMin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="" />		
+        
+	<View android:id="@+id/vwStruts"
+	    android:layout_centerInParent="true"
+	   	android:layout_width="0dp"
+        android:layout_height="0dp"/>
+</RelativeLayout>

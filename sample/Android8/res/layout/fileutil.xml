@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp" >
+
+        <TextView
+            android:id="@+id/txvOpenFile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="Click browse to choose file" />
+
+        <EditText
+            android:id="@+id/edtFilePath"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/txvOpenFile"
+            android:layout_below="@+id/txvOpenFile"
+            android:ems="10"
+            android:focusable="false"
+            android:focusableInTouchMode="false" >
+        </EditText>
+
+        <Button
+            android:id="@+id/btnOpenFile"
+            style="@style/BlackButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignBaseline="@+id/edtFilePath"
+            android:layout_alignBottom="@+id/edtFilePath"
+            android:layout_alignParentRight="true"
+            android:text="Browse" />
+
+        <TextView
+            android:id="@+id/txvDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/edtFilePath"
+            android:layout_below="@+id/btnOpenFile"
+            android:layout_marginTop="10dp"
+            android:text="" />
+
+        <RadioGroup
+            android:id="@+id/rdgWriteFileOptions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txvDetails"
+            android:orientation="vertical" >
+
+            <RadioButton
+                android:id="@+id/rdbWriteStreamString"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="writeStream(string)" />
+
+            <RadioButton
+                android:id="@+id/rdbWriteStreamFile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="writeStream(file)" />
+
+            <RadioButton
+                android:id="@+id/rdbWriteStringToFile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="writeStringToFile" />
+
+            <RadioButton
+                android:id="@+id/rdbCopyFileString"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="copyFile(String)" />
+
+            <RadioButton
+                android:id="@+id/rdbCopyFile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="copyFile(File)" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/btnWriteFile"
+            style="@style/BlackButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/txvDetails"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/rdgWriteFileOptions"
+            android:text="Write File" />
+
+        <RadioGroup
+            android:id="@+id/rdgDeleteFileOptions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnWriteFile"
+            android:orientation="vertical" >
+
+            <RadioButton
+                android:id="@+id/rdbDeleteFileString"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="deleteFile(string)" />
+
+            <RadioButton
+                android:id="@+id/rdbDeleteFile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="deleteFile(file)" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/btnDeleteFile"
+            style="@style/BlackButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/txvDetails"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/chkDeleteShell"
+            android:text="Delete File" />
+
+        <CheckBox
+            android:id="@+id/chkRecursiveDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/rdgDeleteFileOptions"
+            android:layout_alignRight="@+id/btnDeleteFile"
+            android:layout_toRightOf="@+id/rdgDeleteFileOptions"
+            android:text="Delete Recursive" />
+        
+        <CheckBox
+            android:id="@+id/chkDeleteShell"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/btnDeleteFile"
+            android:layout_below="@+id/chkRecursiveDelete"
+            android:layout_toRightOf="@+id/rdgDeleteFileOptions"
+            android:text="Use Shell Command for delete" />
+
+    </RelativeLayout>
+
+</ScrollView>

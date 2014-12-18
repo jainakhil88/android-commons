@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.akhil.android8"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="19" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.INTERNET" />
+    
+    <application
+        android:allowBackup="false"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.akhil.android8.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="AppUtilActivity"/>
+        <activity android:name="AssetUtilActivity" />
+        <activity android:name="DeviceUtilActivity"/>
+        <activity android:name="DisplayUtilActivity"/>
+        <activity android:name="BitmapUtilActivity"/>
+        <activity android:name="FileUtilActivity"/>
+        <activity android:name="SharedPreferenceUtilActivity"/>
+        <activity android:name="SdCardUtilActivity"/>
+        <activity android:name="StreamUtilActivity"/>
+        <activity android:name="ColorUtilActivity"/>
+        <activity android:name="DateUtilActivity"/>
+        <activity android:name="ImageViewUtilActivity"/>
+        <activity android:name="ConnectivityUtilActivity"/>
+        <activity android:name="EditTextUtilsActivity"/>
+        <activity android:name="NetworkUtilActivity"/>
+    </application>
+
+</manifest>

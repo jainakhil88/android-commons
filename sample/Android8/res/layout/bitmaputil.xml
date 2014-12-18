@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/imgDrawable2Bitmap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/btnSaveBitmap"
+                  style="@style/BlackButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Save Bitmap" />
+
+            <ImageView
+                android:id="@+id/imgRotate2Bitmap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            
+              <ImageView
+                android:id="@+id/imgShadow2Bitmap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+              
+              <ImageView
+                android:id="@+id/imgBlur2Bitmap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+              
+              
+               <ImageView
+                android:id="@+id/imgReflect2Bitmap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+               
+               
+                <ImageView
+                android:id="@+id/imgCircle2Bitmap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+                
+                
+                 <ImageView
+                android:id="@+id/imgSquare2Bitmap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+              </LinearLayout>
+    </ScrollView>
+
+   
+    
+</LinearLayout>

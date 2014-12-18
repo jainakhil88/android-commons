@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="5"
+    android:orientation="vertical" >
+
+    <RelativeLayout  android:id="@+id/relLight50"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp" >
+        
+        
+          <TextView
+              android:id="@+id/txvLight50"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:textAppearance="?android:attr/textAppearanceMedium"
+              android:background="@android:color/black"
+              android:textColor="@android:color/white"
+              android:layout_centerHorizontal="true"
+              android:layout_centerVertical="true"
+              android:text="50% Lighter" />
+    </RelativeLayout>
+
+     <RelativeLayout  android:id="@+id/relLight10"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp" >
+        
+           <TextView
+              android:id="@+id/txvLight10"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:textAppearance="?android:attr/textAppearanceMedium"
+              android:background="@android:color/black"
+              android:textColor="@android:color/white"
+              android:layout_centerHorizontal="true"
+              android:layout_centerVertical="true"
+              android:text="10% lighter" />
+    </RelativeLayout>
+    
+     
+      <RelativeLayout android:id="@+id/relBaseColor"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp" >
+
+          <TextView
+              android:id="@+id/txvRandomColor"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:textAppearance="?android:attr/textAppearanceMedium"
+              android:background="@android:color/black"
+              android:textColor="@android:color/white"
+              android:layout_centerHorizontal="true"
+              android:layout_centerVertical="true"
+              android:text="" />
+
+          <Button
+              android:id="@+id/btnSurpriseMe"
+                style="@style/BlackButton"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_alignParentRight="true"
+              android:layout_alignParentTop="true"
+              android:text="Surprise Me" />
+
+    </RelativeLayout>
+    
+      
+       <RelativeLayout  android:id="@+id/relDark10"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp" >
+          
+             <TextView
+              android:id="@+id/txvDark10"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:textAppearance="?android:attr/textAppearanceMedium"
+              android:background="@android:color/black"
+              android:textColor="@android:color/white"
+              android:layout_centerHorizontal="true"
+              android:layout_centerVertical="true"
+              android:text="10% darker" />
+    </RelativeLayout>
+    
+       
+        <RelativeLayout  android:id="@+id/relDark50"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp" >
+             
+              <TextView
+              android:id="@+id/txvDark50"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:textAppearance="?android:attr/textAppearanceMedium"
+              android:background="@android:color/black"
+              android:textColor="@android:color/white"
+              android:layout_centerHorizontal="true"
+              android:layout_centerVertical="true"
+              android:text="50% darker" />
+    </RelativeLayout>
+  
+
+</LinearLayout>

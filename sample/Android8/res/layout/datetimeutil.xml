@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="2dp" >
+
+    <TextView
+        android:id="@+id/txvDateSelection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date 1" />
+
+    <EditText
+        android:id="@+id/edtDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txvDateSelection"
+        android:layout_below="@+id/txvDateSelection"
+        android:ems="10"
+        android:focusable="false"
+        android:focusableInTouchMode="false" >
+    </EditText>
+
+    <Button
+        android:id="@+id/btnDateSelect"
+        style="@style/BlackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignBottom="@+id/edtDate"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/txvDateSelection"
+        android:layout_toRightOf="@+id/edtDate"
+        android:text="Select Date" />
+
+    <TextView
+        android:id="@+id/txvTimeSelection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edtDate"
+        android:text="Time" />
+
+    <EditText
+        android:id="@+id/edtTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txvTimeSelection"
+        android:layout_below="@+id/txvTimeSelection"
+        android:ems="10"
+        android:focusable="false"
+        android:focusableInTouchMode="false" >
+    </EditText>
+
+    <Button
+        android:id="@+id/btnTimeSelect"
+        style="@style/BlackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignBaseline="@+id/edtTime"
+        android:layout_alignBottom="@+id/edtTime"
+        android:layout_alignLeft="@+id/btnDateSelect"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/txvTimeSelection"
+        android:text="Select Time" />
+
+    <!-- seperator -->
+
+    <LinearLayout
+        android:id="@+id/seperator"
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/edtTime"
+        android:background="@android:color/black"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txvDate2Selection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/seperator"
+        android:text="Date 2" />
+
+    <EditText
+        android:id="@+id/edtDate2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txvDate2Selection"
+        android:layout_below="@+id/txvDate2Selection"
+        android:ems="10"
+        android:focusable="false"
+        android:focusableInTouchMode="false" >
+    </EditText>
+
+    <Button
+        android:id="@+id/btnDate2Select"
+        style="@style/BlackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignBottom="@+id/edtDate2"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/txvDate2Selection"
+        android:layout_toRightOf="@+id/edtDate2"
+        android:text="Select Date" />
+
+    <TextView
+        android:id="@+id/txvTime2Selection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edtDate2"
+        android:text="Time 2" />
+
+    <EditText
+        android:id="@+id/edtTime2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txvTime2Selection"
+        android:layout_below="@+id/txvTime2Selection"
+        android:ems="10"
+        android:focusable="false"
+        android:focusableInTouchMode="false" >
+    </EditText>
+
+    <Button
+        android:id="@+id/btnTime2Select"
+        style="@style/BlackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignBaseline="@+id/edtTime2"
+        android:layout_alignBottom="@+id/edtTime2"
+        android:layout_alignLeft="@+id/btnDate2Select"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/txvTime2Selection"
+        android:text="Select Time" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/edtTime2"
+        android:background="@android:color/black"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scrDateTime"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/linearLayout1"
+        android:layout_marginTop="5dp"
+        android:scrollbarFadeDuration="0" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/txvInformation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="" />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

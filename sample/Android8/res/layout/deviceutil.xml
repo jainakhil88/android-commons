@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp">
+
+    
+    
+    <View android:id="@+id/vwStruts"
+	    android:layout_centerInParent="true"
+	   	android:layout_width="0dp"
+        android:layout_height="0dp"/>
+
+    <TextView
+        android:id="@+id/txvLblCamera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/vwStruts"
+        android:text="hasCamera" />
+
+    <TextView
+        android:id="@+id/txvCamera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/txvLblCamera"
+        android:layout_toRightOf="@+id/txvLblCamera"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/txvGps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/txvLblGps"
+        android:layout_toRightOf="@+id/txvLblGps"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/txvLblGps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txvLblCamera"
+        android:layout_alignRight="@+id/txvLblCamera"
+        android:layout_below="@+id/txvLblCamera"
+        android:layout_marginTop="24dp"
+        android:text="hasGPS" />
+
+     <TextView
+         android:id="@+id/txvFrontCamera"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentRight="true"
+         android:layout_alignTop="@+id/txvLblFrontCamera"
+         android:layout_toRightOf="@+id/txvLblGps"
+         android:text="" />
+
+    <TextView
+        android:id="@+id/txvLblFrontCamera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txvLblGps"
+        android:layout_below="@+id/txvLblGps"
+        android:layout_marginTop="25dp"
+        android:text="hasFrontCamera" />
+    
+     <TextView
+         android:id="@+id/txvBluetooth"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentRight="true"
+         android:layout_alignTop="@+id/txvLblBluetooth"
+         android:layout_toRightOf="@+id/txvLblGps"
+         android:text="" />
+
+    <TextView
+        android:id="@+id/txvLblBluetooth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txvLblFrontCamera"
+        android:layout_below="@+id/txvLblFrontCamera"
+        android:layout_marginTop="25dp"
+        android:text="hasBluetooth" />
+    
+         <TextView
+         android:id="@+id/txvNfc"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentRight="true"
+         android:layout_alignTop="@+id/txvLblNfc"
+         android:layout_toRightOf="@+id/txvLblGps"
+         android:text="" />
+
+    <TextView
+        android:id="@+id/txvLblNfc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txvLblBluetooth"
+        android:layout_below="@+id/txvLblBluetooth"
+        android:layout_marginTop="25dp"
+        android:text="hasNFC" />
+</RelativeLayout>

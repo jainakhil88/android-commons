@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp" >
+
+        <TextView
+            android:id="@+id/txvOpenFile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="Click browse to choose file" />
+
+        <EditText
+            android:id="@+id/edtFilePath"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/txvOpenFile"
+            android:layout_below="@+id/txvOpenFile"
+            android:ems="10"
+            android:focusable="false"
+            android:focusableInTouchMode="false" >
+        </EditText>
+
+        <Button
+            android:id="@+id/btnOpenFile"
+            style="@style/BlackButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignBaseline="@+id/edtFilePath"
+            android:layout_alignBottom="@+id/edtFilePath"
+            android:layout_alignParentRight="true"
+            android:text="Browse" />
+
+        <RadioGroup
+            android:id="@+id/rdgStreamOptions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edtFilePath"
+            android:orientation="vertical" >
+
+            <RadioButton
+                android:id="@+id/rdbWriteBytesToFile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="writeBytesToFile" />
+
+            <RadioButton
+                android:id="@+id/rdbCopyInStream"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="copy(inStream,outStream)" />
+
+            <RadioButton
+                android:id="@+id/rdbCopyLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="copyLarge" />
+
+            <RadioButton
+                android:id="@+id/rdbCopyLargeCustom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="copyLarge(10kb)" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/btnWriteFile"
+            style="@style/BlackButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/rdgStreamOptions"
+            android:text="Write File" />
+    </RelativeLayout>
+
+</ScrollView>
