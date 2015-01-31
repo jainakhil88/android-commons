@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * Collection of  commonly used {@link Collection} related utilities.
- * @author ajain
+ * @author Akhil Jain
  *
  */
 public class CollectionUtils {

@@ -28,13 +28,19 @@ import android.graphics.Shader.TileMode;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 
+/**
+ * Bitmap Utils is collection of all library methods, used to save, transform {@link Bitmap} and other utilities for {@link Drawable}.
+ *   
+ *@author Akhil Jain
+ *
+ */
 public class BitmapUtils 
 {
 	private static final int DEFAULT_BLUR_RADIUS = 12;
 
 	/**
 	 * Used to store Bitmap Details, width and height and use as and when needed.
-	 * @author ajain
+	 * @author Akhil Jain
 	 */
 	public static class BitmapDetails{
 		int width;
@@ -301,7 +307,7 @@ public class BitmapUtils
 	}
 
 	/**
-	 * Returns the {@link Bitmap} reflected of the original 
+	 * Returns the {@link Bitmap} reflected of the original {@link Bitmap} image.
 	 * 
 	 * @param bitmap - {@link Bitmap} image.
 	 * @param rate - reflection rate.
@@ -364,41 +370,87 @@ public class BitmapUtils
 		return bitmapWithReflection;
 	}
 
-	public static Bitmap getReflectBitmap(Bitmap originalImage, float rate) {
-		return getReflectBitmap(originalImage, rate,false);
+	/**
+	 * Returns the {@link Bitmap} reflected of the original {@link Bitmap} image.
+	 * <br>
+	 * Does not recycle the original {@link Bitmap}.
+	 * 
+	 * @param bitmapImage - {@link Bitmap} image.
+	 * @param rate - reflection rate.
+	 * 
+	 * @see {@link #getReflectBitmap(Bitmap, float, boolean)}.
+	 * 
+	 * @throws NullPointerException if any of the parameters is null.
+	 */
+	public static Bitmap getReflectBitmap(Bitmap bitmapImage, float rate) {
+		if(StringUtils.isNull(bitmapImage)){
+			throw new NullPointerException("bitmapImage cannot be null");
+		}
+		return getReflectBitmap(bitmapImage, rate,false);
 	}
 
-	public static Bitmap getSquareBitmap(Bitmap src) {
-		return getSquareBitmap(src, 0.1f);
+	/**
+	 * Returns the squared {@link Bitmap} of the original {@link Bitmap} image.
+	 * <br>
+	 * Default squaring is done by <code>0.1f</code> .
+	 * 
+	 * @param bitmapImage - {@link Bitmap} image.
+	 * @see {@link #getSquareBitmap(Bitmap, float)}.
+	 * 
+	 * @throws NullPointerException if any of the parameters is null.
+	 */
+	public static Bitmap getSquareBitmap(Bitmap bitmapImage) {
+		if(StringUtils.isNull(bitmapImage)){
+			throw new NullPointerException("bitmapImage cannot be null");
+		}
+		return getSquareBitmap(bitmapImage, 0.1f);
 	}
 
-	public static Bitmap getSquareBitmap(Bitmap src, float rate) {
-		if (src == null || src.isRecycled())
-			return null;
-		Bitmap ret = src;
-		int w = src.getWidth();
-		int h = src.getHeight();
-		int min = Math.min(w, h);
-		int max = Math.max(w, h);
+	/**
+	 * Returns the squared {@link Bitmap} of the original {@link Bitmap} image.
+	 * 
+	 * @param bitmapImage - {@link Bitmap} image.
+	 * @param rate - squaring rate.
+	 *
+	 * @throws NullPointerException if any of the parameters is null.
+	 */
+	public static Bitmap getSquareBitmap(Bitmap bitmapImage, float rate) {
+		if (StringUtils.isNull(bitmapImage)){
+			throw new NullPointerException("bitmapImage cannot be null");
+		}			
+		Bitmap squaredBitmap = bitmapImage;
+		int width = bitmapImage.getWidth();
+		int height = bitmapImage.getHeight();
+		int min = Math.min(width, height);
+		int max = Math.max(width, height);
 		float r = (float) (max - min) / (float) min;
-		if (w != h && r > rate) {
+		if (width != height && r > rate) {
 			max = Math.round((1.0f + rate) * min);
-			if (w > h) {
-				ret = Bitmap.createBitmap(src, (w - max) / 2, 0, max, min);
+			if (width > height) {
+				squaredBitmap = Bitmap.createBitmap(bitmapImage, (width - max) / 2, 0, max, min);
 			} else {
-				ret = Bitmap.createBitmap(src, 0, (h - max) / 2, min, max);
+				squaredBitmap = Bitmap.createBitmap(bitmapImage, 0, (height - max) / 2, min, max);
 			}
 		}
-		return ret;
+		return squaredBitmap;
 	}
 
-
-	public static Bitmap clipCircleBitmap(Bitmap bitmap) {
-		if (bitmap == null || bitmap.isRecycled())
-			return null;
-
-		int width = bitmap.getWidth();
-		int height = bitmap.getHeight();
+	/**
+	 * Clips / cuts the given {@link Bitmap} image to circular image.
+	 * <br>
+	 * Recycles the old bitmap image.
+	 * 
+	 * @param bitmapImage - {@link Bitmap} object.
+	 * @return {@link Bitmap} clipped circular image.
+	 * 
+	 * @throws NullPointerException if any of the parameters is null.
+	 */
+	public static Bitmap clipCircleBitmap(Bitmap bitmapImage) {
+		if (StringUtils.isNull(bitmapImage)){
+			throw new NullPointerException("bitmapImage cannot be null");
+		}			
+		int width = bitmapImage.getWidth();
+		int height = bitmapImage.getHeight();
 		float roundPx;
 		float left, top = 0, right, bottom, dst_left, dst_top, dst_right, dst_bottom;
 		width = width - 2;
@@ -436,24 +488,44 @@ public class BitmapUtils
 
 		paint.setAntiAlias(true);
 
-
 		canvas.drawRoundRect(rectF, roundPx, roundPx, paint);
 
 		paint.setXfermode(new PorterDuffXfermode(Mode.SRC_IN));
-		canvas.drawBitmap(bitmap, src, dst, paint);
+		canvas.drawBitmap(bitmapImage, src, dst, paint);
 
-		if (!bitmap.isRecycled()) {
-			bitmap.recycle();
+		if (!bitmapImage.isRecycled()) {
+			bitmapImage.recycle();
 		}
 
 		return output;
 	}
 
+	/**
+	 *  Return Blurred {@link Bitmap}. <br>
+	 *  Blurring is done based on default Blur radius of <code>12</code>
+	 *  
+	 *   @see {@link #getBluredBitmap(Bitmap, int)}.
+	 *   
+	 * @param bitmap -{@link Bitmap} image to be blurred.
+	 * @return {@link Bitmap} blurred image
+	 */
 	public static Bitmap getBluredBitmap(Bitmap bitmap){
 		return getBluredBitmap(bitmap,DEFAULT_BLUR_RADIUS);
 	}
 
-	public static Bitmap getBluredBitmap(Bitmap sentBitmap, int radius) {
+	/**
+	 * Stack Blur Algorithm by Mario Klingemann <code><mario@quasimondo.com></code>
+	 * 
+	 * @author Mario Klingemann
+	 * 
+	 * @param bitmapImage - {@link Bitmap}. 
+	 * @param radius - int blur radius.
+	 * 
+	 * @return {@link Bitmap} blurred object.
+	 * 
+	 * @throws NullPointerException if any of the parameters is null.
+	 */
+	public static Bitmap getBluredBitmap(Bitmap bitmapImage, int radius) {
 
 		// Stack Blur v1.0 from
 		// http://www.quasimondo.com/StackBlurForCanvas/StackBlurDemo.html
@@ -483,7 +555,7 @@ public class BitmapUtils
 		//
 		// Stack Blur Algorithm by Mario Klingemann <mario@quasimondo.com>
 
-		Bitmap bitmap = sentBitmap.copy(sentBitmap.getConfig(), true);
+		Bitmap bitmap = bitmapImage.copy(bitmapImage.getConfig(), true);
 
 		if (radius < 1) {
 			return (null);
@@ -682,23 +754,35 @@ public class BitmapUtils
 	}
 
 
-	/* Convert drawable resource to bitmap
+	/** Convert {@link Drawable} resource to {@link Bitmap}
 	 *
-	 * @param context  Application context
-	 * @param drawable drawable resource to be converted
-	 * @return a bitmap
+	 * @param context - {@link Context}.
+	 * @param drawable - drawable id of resource that has to be converted.
+	 * 
+	 * @return {@link Bitmap} object.
+	 *
+	 * 
+	 * @throws NullPointerException if any of the parameters is null.
 	 */
 	public static Bitmap convertImageResourceToBitmap(Context context, int drawable) {
+		if(StringUtils.isNull(context)){
+			throw new NullPointerException("context cannot be null");
+		}
 		return BitmapFactory.decodeResource(context.getResources(), drawable);
 	}
 
 	/**
-	 * Convert drawable to bitmap
+	 * Convert {@link Drawable} to {@link Bitmap}.
 	 *
-	 * @param drawable drawable to be converted
-	 * @return a bitmap
+	 * @param drawable - {@link Drawable} to be converted to {@link Bitmap}.
+	 * @return {@link Bitmap} object.
+	 * 
+	 * @throws NullPointerException if any of the parameters is null.
 	 */
 	public static Bitmap convertDrawableToBitmap(Drawable drawable) {
+		if(StringUtils.isNull(drawable)){
+			throw new NullPointerException("drawable cannot be null");
+		}
 		if (drawable instanceof BitmapDrawable) {
 			return ((BitmapDrawable) drawable).getBitmap();
 		}
@@ -724,7 +808,7 @@ public class BitmapUtils
 	/**
 	 * Gets {@link BitmapDetails} for given bitmap;
 	 * @param bitmap -{@link Bitmap} image.
-	 * @return - {@link BitmapDetails} details object.
+	 * @return {@link BitmapDetails} details object.
 	 * 
 	 * @throws NullPointerException if any of the parameters is null.
 	 */

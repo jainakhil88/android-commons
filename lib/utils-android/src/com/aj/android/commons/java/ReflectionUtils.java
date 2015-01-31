@@ -3,11 +3,15 @@ package com.aj.android.commons.java;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.ArrayList;
-
+/**
+ * Java Reflection related methods.
+ * @author Akhil Jain.
+ *
+ */
 public class ReflectionUtils {
 
 	/**
-	 * Gets an {@link ArrayList<{@link String>} of <code>public</code> and <code>protected</code> 
+	 * Gets an {@link ArrayList<String>} of <code>public</code> and <code>protected</code> 
 	 * methods for the given {@link Class}. 
 	 * 
 	 * @param parameterClass -{@link Class}

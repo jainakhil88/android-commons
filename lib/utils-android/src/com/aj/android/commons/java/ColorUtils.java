@@ -6,7 +6,7 @@ import android.graphics.Color;
 
 /**
  * Collection of {@link Color} related utility methods.
- * @author ajain
+ * @author Akhil Jain.
  *
  */
 public class ColorUtils {

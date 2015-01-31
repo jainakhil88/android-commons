@@ -11,7 +11,7 @@ package com.aj.android.commons.exception;
  *Permission "permission-name" is not defined, Please add <uses-permission android:name="permission-name""/> into AndroidManifest.xml
  *</pre>
  *
- *@author ajain
+ *@author Akhil Jain
  */
 public class PermissionNotDefinedException extends RuntimeException {
 

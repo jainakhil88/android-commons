@@ -30,6 +30,12 @@ import android.graphics.BitmapFactory;
 import com.aj.android.commons.io.StreamUtils;
 import com.aj.android.commons.java.StringUtils;
 
+/**
+ * Common network related methods to validate URL,  download bitmap, GET-ting and POST-ing data to server.
+ * 
+ * @author Akhil Jain.
+ *
+ */
 public class NetworkUtils {
 
 	/***

@@ -4,6 +4,12 @@ import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+/**
+ * Methods for calculating MD5 and SHA-1.
+ * 
+ * @author Akhil Jain.
+ *
+ */
 public class MessageDigestUtils {
 	/**
 	 * Calculate the MD5 of a given String

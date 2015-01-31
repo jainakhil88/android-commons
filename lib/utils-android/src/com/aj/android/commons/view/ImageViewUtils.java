@@ -17,7 +17,13 @@ import android.widget.ImageView;
 import com.aj.android.commons.app.ContentProviderUtils;
 import com.aj.android.commons.java.StringUtils;
 
-
+/**
+ * Collection of method for Resizing {@link Bitmap}, calculating sample size 
+ * and scaling bitmap based on various scaling options.
+ *  
+ * @author Akhil Jain
+ *
+ */
 public class ImageViewUtils {
 	
 	/**
@@ -35,6 +41,7 @@ public class ImageViewUtils {
 	 * 
 	 * @param imageView -{@link ImageView}.
 	 * @return {@link Point} -point object.
+	 * 
 	 * @throws NullPointerException if any of the parameters is null.
 	 */
 	public static Point getImageViewDimensions(ImageView imageView) {
@@ -62,11 +69,12 @@ public class ImageViewUtils {
 	 * @param imageView -{@link ImageView}.
 	 * @param isWidth -boolean true if getting the dimensions for the width, else false for height.   
 	 * @return {@link Point} -point object.
+	 * 
 	 * @throws NullPointerException if any of the parameters is null.
 	 */
 	private static int getDimensions(ImageView imageView, boolean isWidth) {
 		if(StringUtils.isNull(imageView)){
-			throw new NullPointerException("imageView cannt be null");
+			throw new NullPointerException("imageView cannot be null");
 		}
 		LayoutParams params = imageView.getLayoutParams();
 		if (params == null) {
@@ -87,17 +95,32 @@ public class ImageViewUtils {
 	}
 	
 	/**
+	 *  Get the stream format for the given {@link Bitmap} image.
+	 *  
+	 *  
+	 * @param bitmap - {@link Bitmap} object.
+	 * @param format - {@link CompressFormat} format of the image.
+	 * @param compressQuality - Hint to the compressor, 0-100. 
+	 * 0 meaning compress for small size, 100 meaning compress for max quality. 
+	 * Some formats, like PNG which is lossless, will ignore the quality setting.
 	 * 
-	 * @param bitmap
-	 * @return
+	 * @return {@link InputStream} based on provided settings
+	 * 
+	 * @throws NullPointerException if any of the parameters is null.
 	 */
-	public static InputStream getInputStream(Bitmap bitmap, CompressFormat format, int quality){
-		ByteArrayOutputStream bos = new ByteArrayOutputStream(); 
+	public static InputStream getInputStream(Bitmap bitmap, CompressFormat format, int compressQuality){
+		if(StringUtils.isNull(bitmap)){
+			throw new NullPointerException("bitmap cannot be null");
+		}
+		if(StringUtils.isNull(format)){
+			throw new NullPointerException("format cannot be null");
+		}
+		ByteArrayOutputStream bos = new ByteArrayOutputStream();
 		if(format==CompressFormat.PNG){
 			/*ignored for PNG*/
 			bitmap.compress(format, 0 , bos); 
 		}else{
-			bitmap.compress(format, quality , bos); 
+			bitmap.compress(format, compressQuality , bos); 
 		}
 		byte[] bitmapdata = bos.toByteArray();
 		ByteArrayInputStream bs = new ByteArrayInputStream(bitmapdata);
@@ -119,6 +142,7 @@ public class ImageViewUtils {
 	 * @param requiredWidth -int required width.
 	 * @param requiredHeight -int required height.
 	 * @return {@link Bitmap} -scaled bitmap.
+	 * 
 	 * @throws NullPointerException if any of the parameters is null.
 	 * @throws IllegalArgumentException if any parameter is empty.
 	 */
@@ -186,6 +210,7 @@ public class ImageViewUtils {
 	 * @param requiredWidth -int required width.
 	 * @param requiredHeight -int required height.
 	 * @return {@link Bitmap} -scaled bitmap.
+	 * 
 	 * @throws NullPointerException if any of the parameters is null.
 	 */
 	public static Bitmap getScaledBitmapFromBitmap(Bitmap bitmap,CompressFormat format, int quality, int requiredWidth, int requiredHeight){
@@ -224,6 +249,7 @@ public class ImageViewUtils {
 	 * @param requiredWidth -int required width.
 	 * @param requiredHeight -int required height.
 	 * @return {@link Bitmap} -exactly scaled bitmap.
+	 * 
 	 * @throws NullPointerException if any of the parameters is null.
 	 * @throws IllegalArgumentException if any parameter is empty.
 	 */
@@ -252,6 +278,7 @@ public class ImageViewUtils {
 	 * @param requiredWidth -int required width.
 	 * @param requiredHeight -int required height.
 	 * @return {@link Bitmap} -exactly scaled bitmap.
+	 * 
 	 * @throws NullPointerException if any of the parameters is null.
 	 */
 	public static Bitmap getExactScaledBitmap(String filePath, int requiredWidth, int requiredHeight){
@@ -288,6 +315,7 @@ public class ImageViewUtils {
 	 * @param requiredWidth -int required width.
 	 * @param requiredHeight -int required height.
 	 * @return {@link Bitmap} -exactly scaled bitmap.
+	 * 
 	 * @throws NullPointerException if any of the parameters is null.
 	 */
 	public static Bitmap getExactScaledBitmapFromBitmap(Bitmap bitmap,CompressFormat format, int quality, int requiredWidth, int requiredHeight){
@@ -378,6 +406,7 @@ public class ImageViewUtils {
 	 * @param requiredHeight -int required height.
 	 * @param scalingPreference -{@link ScalingOptions} to specify on what basis images have to be scaled.
 	 * @return {@link Bitmap} -scaled bitmap based on scaling options.
+	 * 
 	 * @throws NullPointerException if any of the parameters is null.
 	 * @throws IllegalArgumentException if any {@link String} parameter is empty or null.
 	 */
@@ -403,6 +432,7 @@ public class ImageViewUtils {
 	 * @param requiredHeight -int required height.
 	 * @param scalingPreference -{@link ScalingOptions} to specify on what basis images have to be scaled.
 	 * @return {@link Bitmap} -scaled bitmap based on scaling options.
+	 * 
 	 * @throws NullPointerException if any of the parameters is null.
 	 */
 	public static Bitmap getBitmapBasedOnScalingOptions(String filePath, int requiredWidth, int requiredHeight,ScalingOptions scalingPreference){
@@ -433,6 +463,7 @@ public class ImageViewUtils {
 	 * @param requiredHeight -int required height.
 	 * @param scalingPreference -{@link ScalingOptions} to specify on what basis images have to be scaled.
 	 * @return {@link Bitmap} -scaled bitmap based on scaling options.
+	 * 
 	 * @throws NullPointerException if any of the parameters is null.
 	 */
 	public static Bitmap getBitmapBasedOnScalingOptionsFromBitmap(Bitmap bitmap,CompressFormat format, int quality, int requiredWidth, int requiredHeight,ScalingOptions scalingPreference){

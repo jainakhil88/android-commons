@@ -8,6 +8,13 @@ import com.aj.android.commons.net.NetworkUtils;
 import android.text.TextUtils;
 import android.util.Patterns;
 
+/**
+ * Collection of commonly used String methods for string manipulation for chasing case, 
+ * removing extra spaces.  
+ * 
+ * @author Akhil Jain.
+ *
+ */
 public class StringUtils {
 
 	/**

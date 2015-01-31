@@ -14,6 +14,12 @@ import org.json.JSONObject;
 import com.aj.android.commons.java.CollectionUtils;
 import com.aj.android.commons.java.StringUtils;
 
+/**
+ * Collection of common JSON related methods.
+ *  
+ * @author Akhil Jain
+ *
+ */
 public class JSONUtils {
 	
 	/**

@@ -5,6 +5,13 @@ import java.text.DecimalFormatSymbols;
 import java.util.Locale;
 import java.util.Random;
 
+/**
+ * Collection of number related methods.  From rounding, truncation and 
+ * getting random number within range for datatypes integer, long, double and others.
+ * 
+ * @author Akhil Jain
+ *
+ */
 public class MathUtils {
 
 	private static final float DEG_TO_RAD = 3.1415926f / 180.0f;

@@ -20,7 +20,8 @@ import android.database.sqlite.SQLiteOpenHelper;
  *  <code> 
  *  class Database extends {@link ExtendedSQLiteOpenHelper}
  *  </code>
- *
+ *  
+  *@author Akhil Jain
  */
 public abstract class ExtendedSQLiteOpenHelper extends SQLiteOpenHelper {
 

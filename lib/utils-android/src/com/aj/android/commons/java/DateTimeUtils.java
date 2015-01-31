@@ -6,9 +6,10 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 /**
- * Collection of Date and Time Utils
- * 
- * @author Akhil Jain
+ * Collection of Date and Time Utils. Contains lot of method for adding, subtracting various fields in 
+ * date. Formatting, parsing and calculating difference between two given dates and other such utilities.
+ *  
+ * @author Akhil Jain.
  *
  */
 public class DateTimeUtils {

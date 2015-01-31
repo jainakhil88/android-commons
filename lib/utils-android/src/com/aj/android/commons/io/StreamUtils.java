@@ -16,6 +16,11 @@ import java.util.List;
 
 import com.aj.android.commons.java.StringUtils;
 
+/**
+ * Collection of common method for reading, writing and transforming byte-streams to and fro.
+ * @author Akhil Jain
+ *
+ */
 public class StreamUtils {
 
 	private static final int DEFAULT_BUFFER_SIZE = 1024 * 4;
@@ -25,6 +30,8 @@ public class StreamUtils {
      *  
      * @param byteBuffer -{@link ByteBuffer}.
      * @return byte[] -byte array.
+     * 
+	 * @throws NullPointerException if any of the parameters is null.
      */
     public static byte[] getByteArray(ByteBuffer byteBuffer){
     	if(StringUtils.isNull(byteBuffer)){
@@ -37,8 +44,10 @@ public class StreamUtils {
     
     /**
      * Convert byte array to {@link ByteBuffer}
-     * @param bytes -byte array.
-     * @return byteBuffer -{@link ByteBuffer}.
+     * @param bytes - byte array.
+     * @return byteBuffer {@link ByteBuffer}.
+     * 
+	 * @throws NullPointerException if any of the parameters is null.
      */
     public static ByteBuffer getByteBuffer(byte[] bytes){
     	if(StringUtils.isNull(bytes)){
@@ -57,11 +66,15 @@ public class StreamUtils {
 	 *  
 	 * @param filePath -{@link String} Physical file system absolute path for file.
 	 * @return byte[] -contents of array in byte form.
+	 * 
+	 * 
 	 * @throws IOException
+	 * @throws NullPointerException if any of the parameters is null.
+	 * @throws IllegalArgumentException if any {@link String} parameter is empty or null.
 	 */
 	  public static byte[] getBytesFromFile(String filePath) throws IOException {
 		  if(StringUtils.isNull(filePath)){
-			  throw new IOException("filePath cannot be null");
+			  throw new NullPointerException("filePath cannot be null");
 		  }
 		  if(StringUtils.isEmpty(filePath)){
 			  throw new IllegalArgumentException("filePath cannot be empty");
@@ -109,7 +122,10 @@ public class StreamUtils {
 	 * 
 	 * @param inputStream -{@link InputStream} which needs to be converted.
 	 * @return {@link String} -converted from given InputStream.
+	 * 
 	 * @throws IOException
+	 * @throws NullPointerException if any of the parameters is null.
+	 * 
 	 */
 	public static String convertStreamToString(InputStream inputStream) throws IOException {
 		if(StringUtils.isNull(inputStream)){
@@ -136,7 +152,9 @@ public class StreamUtils {
 	 * 
 	 * @param inputStream -{@link InputStream} which needs to be converted.
 	 * @return {@link List}<{@link String}> -Stream in list format.
+	 * 
 	 * @throws IOException
+	 * @throws NullPointerException if any of the parameters is null.
 	 */
 	public static List<String> convertStreamToList(InputStream inputStream) throws IOException {
 		if(StringUtils.isNull(inputStream)){
@@ -157,6 +175,15 @@ public class StreamUtils {
 		return content;
 	}
 	
+	/**
+	 *  Converts given {@link InputStream} to {@link List}<{@link String}> based on given character set, where each line is new List item. 
+	 *  
+	 * @param inputStream -{@link InputStream} which needs to be converted.
+	 * @return {@link List}<{@link String}> -Stream in list format.
+	 * 
+	 * @throws IOException
+	 * @throws NullPointerException if any of the parameters is null.
+	 */
 	public static List<String> convertStreamToList(InputStream inputStream,String charsetName) throws IOException {
 		if(StringUtils.isNull(inputStream)){
 			throw new NullPointerException("inputStream cannot be null");
@@ -181,17 +208,15 @@ public class StreamUtils {
 		}
 		return content;
 	}
-
-	
-	
-	 
 	
 	/**
 	 * Returns a byte array copy of {@link InputStream}.
 	 * 
 	 * @param inputStream -{@link InputStream} which needs to be converted.
 	 * @return byte[] -contents of array in byte form.
+	 * 
 	 * @throws IOException
+	 * @throws NullPointerException if any of the parameters is null.
 	 */
 	public static byte[] toByteArray(InputStream inputStream) throws IOException {
 		if(StringUtils.isNull(inputStream)){
@@ -205,9 +230,11 @@ public class StreamUtils {
     /**
 	   * Write byte contents to given file path.
 	   * 
-	   * @param filePath -{@link String}  Physical file system absolute path for file.
-	   * @param contents -in byte array form.
+	   * @param filePath - {@link String}  Physical file system absolute path for file.
+	   * @param contents - in byte array form.
+	   * 
 	   * @throws IOException
+	   * @throws NullPointerException if any of the parameters is null.
 	   */
 	public static void writeBytesToFile(String filePath,byte[] contents) throws IOException{
 		if(StringUtils.isNull(filePath)){
@@ -247,9 +274,17 @@ public class StreamUtils {
      * @param inputStream -Source {@link InputStream}.
      * @param outputStream -Destination {@link OutputStream}.
      * @return long -no of bytes copy from source to destination stream.
+     * 
      * @throws IOException
+	 * @throws NullPointerException if any of the parameters is null.
      */
     public static long copy(InputStream inputStream, OutputStream outputStream) throws IOException {
+    	if(StringUtils.isNull(inputStream)){
+    		throw new NullPointerException("inputStream cannot be null");    		
+    	}
+    	if(StringUtils.isNull(outputStream)){
+    		throw new NullPointerException("outputStream cannot be null");    		
+    	}
         return copyLarge(inputStream, outputStream,new byte[DEFAULT_BUFFER_SIZE]);        
     }
     
@@ -262,9 +297,17 @@ public class StreamUtils {
      * @param inputStream -Source {@link InputStream}.
      * @param outputStream -Destination {@link OutputStream}.
      * @return long -no of bytes copy from source to destination stream.
+     * 
      * @throws IOException
+	 * @throws NullPointerException if any of the parameters is null.
      */
     public static long copyLarge(InputStream inputStream, OutputStream outputStream)throws IOException {
+    	if(StringUtils.isNull(inputStream)){
+    		throw new NullPointerException("inputStream cannot be null");    		
+    	}
+    	if(StringUtils.isNull(outputStream)){
+    		throw new NullPointerException("outputStream cannot be null");    		
+    	}
         return copyLarge(inputStream, outputStream, new byte[DEFAULT_BUFFER_SIZE*2]);
     }
     
@@ -275,8 +318,11 @@ public class StreamUtils {
      * @param inputStream -Source {@link InputStream}.
      * @param outputStream -Destination {@link OutputStream}.
      * @param bytes - byte array buffer size, specifying how much byte to read each time.
+     * 
      * @return long -no of bytes copy from source to destination stream.
+     * 
      * @throws IOException
+	 * @throws NullPointerException if any of the parameters is null.
      */
     public static long copyLarge(InputStream inputStream, OutputStream outputStream, byte[] bytes)throws IOException {
     	if(StringUtils.isNull(inputStream)){

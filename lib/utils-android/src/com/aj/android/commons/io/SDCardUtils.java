@@ -6,6 +6,12 @@ import android.os.StatFs;
 
 import com.aj.android.commons.app.VersionUtils;
 
+/**
+ * Common Sd Card related utilities.
+ * 
+ * @author Akhil Jain
+ *
+ */
 public class SDCardUtils 
 {
 	

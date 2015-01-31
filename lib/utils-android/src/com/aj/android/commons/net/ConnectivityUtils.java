@@ -15,7 +15,7 @@ import com.aj.android.commons.java.StringUtils;
 
 /**
  * Collection of utilities related to network connectivity and find network state .
- * @author ajain
+ * @author Akhil Jain
  *
  */
 public class ConnectivityUtils {

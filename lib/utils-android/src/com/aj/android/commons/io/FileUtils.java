@@ -20,6 +20,13 @@ import android.webkit.MimeTypeMap;
 import com.aj.android.commons.java.CollectionUtils;
 import com.aj.android.commons.java.StringUtils;
 
+/**
+ * Collection of {@link File} related utilities for reading, writing files. <br>
+ * and other directory related operations.
+ * 
+ * @author Akhil Jain
+ *
+ */
 public class FileUtils {
 
 	public final static String FILE_EXTENSION_SEPARATOR = ".";
@@ -31,13 +38,14 @@ public class FileUtils {
 	 * @return int -number of files  and directories(if included) found in given directory path.  
 	 */
 	public static int getFileCount(String directoryPath,boolean countDirectory){
+		if(StringUtils.isNull(directoryPath)){
+			throw new NullPointerException("directoryPath cannot be null");
+		}
 		File f = new File(directoryPath);
 		File[] files  = f.listFiles();
 		int count=0;
-		if(files != null)
-		{
-			for(int i=0; i < files.length; i++)
-			{
+		if(files != null){
+			for(int i=0; i < files.length; i++){
 				File file = files[i];
 				if(file.isDirectory() && countDirectory){
 						count ++;
@@ -56,8 +64,10 @@ public class FileUtils {
 	 * @param countDirectory -boolean, if set to true will count directory also, else not.
 	 * @return int -number of files and directories(if included) found in given directory and sub-directory.  
 	 */
-	public static int getRecursiveFileCount(String directoryPath,boolean countDirectory) 
-	{
+	public static int getRecursiveFileCount(String directoryPath,boolean countDirectory) {
+		if(StringUtils.isNull(directoryPath)){
+			throw new NullPointerException("directoryPath cannot be null");
+		}
 		File f = new File(directoryPath);
 		File[] files  = f.listFiles();
 		int count=0;
@@ -88,8 +98,8 @@ public class FileUtils {
 	public static long getDirectorySize(String directoryPath,boolean countDirectory) {
 	    long length = 0;
 	    if(StringUtils.isNull(directoryPath)){
-	    	return length;
-	    }
+			throw new NullPointerException("directoryPath cannot be null");
+		}
 	    File folder=new File(directoryPath);
 	    if(folder.listFiles()!=null){
 	    	for (File file : folder.listFiles()) {
@@ -342,23 +352,17 @@ public class FileUtils {
 	 * @param filePath -{@link String}  physical file system absolute path for file.
 	 * @return boolean -true if file exist, else false.
 	 */
-	public static boolean checkIfFileExists(String filePath)
-	{
+	public static boolean checkIfFileExists(String filePath){
 		if(StringUtils.isNull(filePath)){
 			throw new NullPointerException("filePath cannot be null");
 		}
 		boolean fileExist=false;
-		if(filePath==null){
-			fileExist=false;
+		File file=new File(filePath);
+		if(file.exists()){
+			fileExist=true;
 		}
 		else{
-			File file=new File(filePath);
-			if(file.exists()){
-				fileExist=true;
-			}
-			else{
-				fileExist=false;
-			}
+			fileExist=false;
 		}
 		return fileExist;
 	}
@@ -413,7 +417,6 @@ public class FileUtils {
 		} else {
 			hrSize = dec.format(bytes).concat(" Bytes");
 		}
-
 		return hrSize;
 	}
 	
@@ -422,10 +425,10 @@ public class FileUtils {
 	
 
 	/**
-	 * copy file
+	 * Copy file from source to destination.
 	 * 
-	 * @param sourceFilePath
-	 * @param destFilePath
+	 * @param sourceFilePath - {@link String} source file path which file have to be copied.
+	 * @param destFilePath - {@link String} destination file path where file has to be written. 
 	 * @return
 	 * @throws IOException 
 	 * @throws RuntimeException if an error occurs while operator FileOutputStream
@@ -443,12 +446,12 @@ public class FileUtils {
 	/**
 	 * Copies the contents of one file to the other using {@link FileChannel}s.
 	 *
-	 * @param src source {@link File}
-	 * @param dst destination {@link File}
+	 * @param sourceFile - source {@link File}
+	 * @param destinationFile - destination {@link File}
 	 */
-	public static void copyFile(File src, File dst) throws IOException {
-		FileInputStream in = new FileInputStream(src);
-		FileOutputStream out = new FileOutputStream(dst);
+	public static void copyFile(File sourceFile, File destinationFile) throws IOException {
+		FileInputStream in = new FileInputStream(sourceFile);
+		FileOutputStream out = new FileOutputStream(destinationFile);
 		FileChannel inChannel = in.getChannel();
 		FileChannel outChannel = out.getChannel();
 
@@ -599,7 +602,7 @@ public class FileUtils {
 	}
 
 	/**
-	 * write file, the string list will be written to the begin of the file
+	 * Write file, the string list will be written to the begin of the file
 	 * 
 	 * @param filePath
 	 * @param contentList
@@ -610,7 +613,7 @@ public class FileUtils {
 	}
 
 	/**
-	 * write file, the bytes will be written to the begin of the file
+	 * Write file, the bytes will be over-written with new content.
 	 * 
 	 * @param filePath
 	 * @param stream
@@ -623,7 +626,7 @@ public class FileUtils {
 	}
 
 	/**
-	 * write file
+	 * Write file
 	 * 
 	 * @param file the file to be opened for writing.
 	 * @param stream the input stream

@@ -3,7 +3,13 @@ package com.aj.android.commons.view;
 import android.widget.EditText;
 
 import com.aj.android.commons.java.StringUtils;
-
+/**
+ * Common EditText related utilities from checking for empty EditText and other as 
+ * validating whether data is within range or not and many others. 
+ * 
+ * @author Akhil Jain.
+ *
+ */
 public class EditTextUtils {
 	
 	/**

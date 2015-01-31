@@ -1,5 +1,10 @@
 package com.aj.android.commons.java;
 
+/**
+ * Collection of common method of conversion.
+ * @author Akhil Jain
+ *
+ */
 public class ConversionUtils {
 	
 	/**

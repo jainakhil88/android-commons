@@ -12,6 +12,7 @@ import android.database.sqlite.SQLiteDatabase;
 /**
  * Collection of generic methods for common purpose task  in {@link SQLiteDatabase}.
  *
+ *@author Akhil Jain
  */
 public class DBUtils {
 

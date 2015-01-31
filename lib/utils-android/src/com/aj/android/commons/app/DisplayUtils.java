@@ -15,6 +15,12 @@ import android.view.WindowManager;
 
 import com.aj.android.commons.java.StringUtils;
 
+/**
+ * Collection of all method for getting screen display size width and height and other related utilities. 
+ * 
+ * @author Akhil Jain
+ *
+ */
 public class DisplayUtils {
 
 	/**
