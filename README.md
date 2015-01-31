@@ -10,7 +10,7 @@ Android Commons aims to provide quick, easy and ready to use set of functionalit
 ## Downloads
  * **[utils-android-1.0.0.jar](https://github.com/jainakhil88/android-commons/blob/master/downloads/utils-android-1.0.0.jar)**
  * **[utils-android-1.0.0-with-sources.jar](https://github.com/nostra13/Android-Universal-Image-Loader/raw/master/downloads/universal-image-loader-1.9.3-with-sources.jar)** (for Eclipse)
- * **[Sample App on Github](https://github.com/jainakhil88/android-commons/blob/master/downloads/Android8-1.0.0.apk)
+ * [Sample App on Github](https://github.com/jainakhil88/android-commons/blob/master/downloads/Android8-1.0.0.apk)
 
  
 ## License
