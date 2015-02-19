@@ -3,6 +3,9 @@ package com.aj.android.commons.database;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.aj.android.commons.database.DBUtils.SQLITE_DATA_TYPE;
+import com.aj.android.commons.java.StringUtils;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -106,6 +109,22 @@ public abstract class ExtendedSQLiteOpenHelper extends SQLiteOpenHelper {
 	public HashMap<String, Integer> getIndexOfColumns(Cursor cursor){
 		return DBUtils.getIndexOfColumns(cursor);
 	}
+	
+	/**
+	 * Check if the column table name exist in given table.
+	 * <br>
+	 * {@link SQLiteDatabase} is closed automatically.
+	 * 
+	 * @param tableName -{@link String} table name where needs to be searched.
+	 * @param columnName -{@link String} column name which needs to be searched.
+	 * @return boolean -returns true if the table exist in the database, else false.
+	 * 
+	 * @throws NullPointerException if any of the parameters is null.
+	 * @throws IllegalArgumentException if any {@link String} parameter is empty or null.
+	 */
+	public boolean checkIfColumnExist(String tableName, String columnName){
+		return DBUtils.checkIfColumnExist(getReadableDatabase(), tableName, columnName);
+	}
 
 	/**
 	 * Check if the given table name exist in database or not.<br>
@@ -133,6 +152,20 @@ public abstract class ExtendedSQLiteOpenHelper extends SQLiteOpenHelper {
 		return DBUtils.containsRecords(tableName, getReadableDatabase()); 
 	}
 
+	/**
+	 * Add new Column to database, the new column is added to last of database.
+	 * 
+	 * @param tableName -{@link String} table name where needs to be searched.
+	 * @param columnName -{@link String} column name which needs to be searched.
+	 * @param dataType -{@link SQLITE_DATA_TYPE} datatype for sqlite.
+	 * 
+	 * @throws NullPointerException if any of the parameters is null.
+	 * @throws IllegalArgumentException if any {@link String} parameter is empty or null.
+	 */
+	public void addColumn(String tableName, String columnName ,SQLITE_DATA_TYPE dataType){
+		DBUtils.addColumn(getWritableDatabase(), tableName, columnName, dataType);
+	}
+	
 	/**Inserting the records into the given table.<br>
 	 * 
 	 * {@link SQLiteDatabase} is closed automatically.

@@ -1,12 +1,14 @@
 package com.aj.android.commons.app;
 
 import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
+import android.provider.Settings;
 import android.provider.Settings.Secure;
 import android.telephony.TelephonyManager;
 
@@ -234,5 +236,26 @@ public class DeviceUtils {
     	PackageManager pm = context.getPackageManager();
       	 return pm.hasSystemFeature(PackageManager.FEATURE_BLUETOOTH);
     } 
+    
+    /**
+     * Gets the state of Airplane Mode.
+     * 
+     * @param context -{@link Context}.
+     * @return boolean - true If the device has front camera, else false.
+     */
+    @SuppressWarnings("deprecation")
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
+    public static boolean isAirplaneModeOn(Context context) {
+    	if(StringUtils.isNull(context)){
+			throw new NullPointerException("context cannot be null");
+		} 
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            return Settings.System.getInt(context.getContentResolver(), 
+                    Settings.System.AIRPLANE_MODE_ON, 0) != 0;          
+        } else {
+            return Settings.Global.getInt(context.getContentResolver(), 
+                    Settings.Global.AIRPLANE_MODE_ON, 0) != 0;
+        }       
+    }
     
 }

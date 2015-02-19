@@ -526,6 +526,26 @@ public class MathUtils {
 	}
 	
 	/**
+	 * Returns true if the given number is cube, else false.
+	 * @param number
+	 * @return
+	 */
+	public static boolean isACube(double number){
+		double cubeRoot = Math.cbrt(number); // get the cube root
+		return Math.round(cubeRoot) == cubeRoot; // determine if number is integral
+	}
+
+	/**
+	 * Returns true if the given number is square, else false.
+	 * @param number
+	 * @return
+	 */
+	public static boolean isASquare(double number){
+		double squareRoot = Math.sqrt(number); // get the cube root
+		return Math.round(squareRoot) == squareRoot; // determine if number is integral
+	}
+	
+	/**
 	 * Truncates a value
 	 * @param value - value to be truncated
 	 * @param places - decimal places

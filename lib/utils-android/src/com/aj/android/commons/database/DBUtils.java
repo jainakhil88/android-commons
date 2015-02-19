@@ -15,6 +15,14 @@ import android.database.sqlite.SQLiteDatabase;
  *@author Akhil Jain
  */
 public class DBUtils {
+	
+	public enum SQLITE_DATA_TYPE{
+		TEXT,
+		NUMERIC,
+		INTEGER,
+		REAL,
+		BLOB
+	};
 
 	/**Get all table names present in given database in List format, except <code>android_metadata</code> and <code>sqlite_sequence</code>.
 	 * <br>
@@ -148,6 +156,34 @@ public class DBUtils {
 	}
 	
 	/**
+	 * Check if the column table name exist in given table and database.
+	 * <br>
+	 * {@link SQLiteDatabase} is closed automatically.
+	 * @param tableName -{@link String} table name where needs to be searched.
+	 * @param columnName -{@link String} column name which needs to be searched.
+	 * @param readableDatabase -{@link SQLiteDatabase} pass readable instance of database.
+	 * @return boolean -returns true if the table exist in the database, else false.
+	 * 
+	 * @throws NullPointerException if any of the parameters is null.
+	 * @throws IllegalArgumentException if any {@link String} parameter is empty or null.
+	 */
+	public static boolean checkIfColumnExist(SQLiteDatabase readableDatabase,String tableName, String columnName){
+		boolean isExist = false;
+		String query="PRAGMA table_info("+tableName+")";
+		Cursor cursor = readableDatabase.rawQuery(query,null);
+		cursor.moveToFirst();
+		while(!cursor.isAfterLast()) {
+			if(cursor.getString(1).toString().equalsIgnoreCase(columnName)) {
+				isExist = true;
+				break;
+			}
+			cursor.moveToNext();
+		}
+		closeDBConnection(readableDatabase, cursor);
+		return isExist;
+	}
+
+	/**
 	 * Check if the given table name exist in given database or not.
 	 * <br>
 	 * {@link SQLiteDatabase} is closed automatically.
@@ -216,8 +252,39 @@ public class DBUtils {
 		}
 		return records;
 	}
+	/**
+	 * Add new Column to database, the new column is added to last of database.
+	 * 
+	 * @param writableDatabase -{@link SQLiteDatabase} pass writable instance of database.
+	 * @param tableName -{@link String} table name where needs to be searched.
+	 * @param columnName -{@link String} column name which needs to be searched.
+	 * @param dataType -{@link SQLITE_DATA_TYPE} datatype for sqlite.
+	 * 
+	 * @throws NullPointerException if any of the parameters is null.
+	 * @throws IllegalArgumentException if any {@link String} parameter is empty or null.
+	 */
+	public static void addColumn(SQLiteDatabase writableDatabase,String tableName, String columnName ,SQLITE_DATA_TYPE dataType){
+		if(StringUtils.isNull(writableDatabase)){
+			throw new NullPointerException("writableDatabase cannot be null");
+		}
+		if(StringUtils.isNull(tableName)){
+			throw new NullPointerException("tableName cannot be null");
+		}
+		if(StringUtils.isEmpty(tableName)){
+			throw new IllegalArgumentException("tableName cannot be empty");
+		}
+		if(StringUtils.isNull(columnName)){
+			throw new NullPointerException("columnName cannot be null");
+		}
+		if(StringUtils.isEmpty(columnName)){
+			throw new IllegalArgumentException("columnName cannot be empty");
+		}
+		String alterQuery="ALTER TABLE "+tableName+" ADD COLUMN "+columnName+ " "+ dataType.toString();
+		writableDatabase.execSQL(alterQuery);
+		closeDBConnection(writableDatabase,null);
+	}
 	
-
+	
 	/**Inserting the records into the given table in the given database.
 	 * <br>
 	 * {@link SQLiteDatabase} is closed automatically.
@@ -352,5 +419,6 @@ public class DBUtils {
 			}
 		}
 	}	
+
 
 }
