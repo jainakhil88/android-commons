@@ -3,7 +3,7 @@
 Android Commons aims to provide quick, easy and ready to use set of functionalities and utilites. It consist of various method for Bitmap Image Scaling, Application, Network, I/O , SQLite database and many others.
 
 ## Features
- * Wide customization utlities for scaling and recycling Bitmap.
+ * Wide customization utilities for scaling and recycling Bitmap.
  * `ExtendedSQLiteOpenHelper` extension of `SQLiteOpenHelper` with enhance features for database operations.
  * Extensive File and Directory reading, writing and fast information retrieval methods.
  * Tons of Nuts and Bolts for String, Maths and other various features.
