@@ -9,6 +9,11 @@ Android Commons aims to provide quick, easy and ready to use set of functionalit
  * Tons of Nuts and Bolts for String, Maths and other various features.
  * Android 2.2+ / API Level 8+ Support.
  
+## Usage
+
+ * Using the library is very easy, just copy the **library jar** in **libs** directory of android project or include the file    in build path. See step by step how to include library [here](https://github.com/jainakhil88/android-commons/wiki/Quick-Setup) for quick setup.
+ * Look [here](https://github.com/jainakhil88/android-commons/wiki/Useful-Info) if you any have issues while deploying the app using proguard.
+
 ## Package Structure / UML Diagrams
 
 * **[App Package](https://github.com/jainakhil88/android-commons/wiki/UML-and-Package-Structure#app-package)**
