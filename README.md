@@ -11,7 +11,44 @@ Android Commons aims to provide quick, easy and ready to use set of functionalit
  
 ## Usage
 
- * Using the library is very easy, just copy the **library jar** in **libs** directory of android project or include the file    in build path. See step by step how to include library [here](https://github.com/jainakhil88/android-commons/wiki/Quick-Setup) for quick setup.
+#### 1. Include library
+
+**Manual:**
+ * [Download JAR](https://github.com/jainakhil88/android-commons/blob/master/downloads/utils-android-1.0.0.jar)
+ * Put the JAR in the **libs** subfolder of your Android project
+
+![jar library in libs](https://github.com/jainakhil88/android-commons/blob/master/wiki/dir_structure.png)
+
+
+ * Make sure the library is included in the *Build Path* for project.
+
+![build path](https://github.com/jainakhil88/android-commons/blob/master/wiki/build_path.png)
+
+
+#### 2. Android Manifest
+``` xml
+<manifest>
+	<!-- Include following permission if you load images from Internet -->
+	<uses-permission android:name="android.permission.INTERNET" />
+	<!-- Include following permission if you want to cache images on SD card -->
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- Include when checking the network state -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	...
+</manifest>
+```
+
+#### 3. Application or Activity class
+``` java
+public class MyActivity extends Activity {
+        EditText edtText;
+	public void randomMethod() {
+             EditTextUtils.clearEditText(edtText);
+	}
+}
+```
+
+![usage](https://github.com/jainakhil88/android-commons/blob/master/wiki/usage.png)
  * Look [here](https://github.com/jainakhil88/android-commons/wiki/Useful-Info) if you any have issues while deploying the app using proguard.
 
 ## Package Structure / UML Diagrams
